@@ -745,6 +745,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "gmail-mbox-analyzer"
+version = "0.1.0"
+dependencies = [
+ "actix-web",
+ "anyhow",
+ "clap",
+ "humansize",
+ "indoc",
+ "mail-parser",
+ "mbox-reader",
+ "rusqlite",
+ "rusqlite_migration",
+ "serde",
+ "tera",
+ "tokio",
+ "url",
+]
+
+[[package]]
 name = "h2"
 version = "0.3.26"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -995,25 +1014,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "ed5a1335c3a964788c90cb42ae04a34b5f2628e89566949ce3bd4ada695c0bcd"
 dependencies = [
  "encoding_rs",
-]
-
-[[package]]
-name = "mailparse"
-version = "0.1.0"
-dependencies = [
- "actix-web",
- "anyhow",
- "clap",
- "humansize",
- "indoc",
- "mail-parser",
- "mbox-reader",
- "rusqlite",
- "rusqlite_migration",
- "serde",
- "tera",
- "tokio",
- "url",
 ]
 
 [[package]]
