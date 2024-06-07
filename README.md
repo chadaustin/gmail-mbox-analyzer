@@ -13,6 +13,8 @@ This tool has two functions:
 
 * Ensure Rust is installed, probably via [rustup](https://rustup.rs/).
 * From a shell: `cargo install gmail-mbox-analyzer`
+* You may need to install sqlite3 system libraries. For example, on
+  Ubuntu, `sudo apt install libsqlite3-dev`
 
 ## Usage
 
