@@ -1,0 +1,68 @@
+{% macro filter_list(items) %}
+<ul>
+{% for i in items %}
+<li><a href="{{ i.filter_url }}">{{ i.key }}</a>: {{ i.size }}</li>
+{% endfor %}
+</ul>
+{% endmacro listitem %}
+
+<!doctype html>
+<html>
+<head>
+  <title>{{ db }}</title>
+  <style>
+    .category {
+        display: inline-block;
+        vertical-align: text-top;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>{{ db }} Analysis</h1>
+    <div>Total size: {{ total_size }}</div>
+    {% if filtered_size %}
+    <div>Filtered size: {{ filtered_size }}</div>
+    {% endif %}
+    <div class="active-filters">
+      {% for filter in active_filters %}
+      <span><a href="{{ filter.remove_url }}">{{ filter.key }} &#10006;</a></span>
+      {% endfor %}
+    </div>
+  </div>
+  <div>
+    {% if by_label %}
+    <div class="category">
+      <h2>By Label</h2>
+      {{ self::filter_list(items=by_label) }}
+    </div>
+    {% endif %}
+    {% if by_year %}
+    <div class="category">
+      <h2>By Year</h2>
+      {{ self::filter_list(items=by_year) }}
+    </div>
+    {% endif %}
+    {% if by_domain %}
+    <div class="category">
+      <h2>By Domain</h2>
+      {{ self::filter_list(items=by_domain) }}
+    </div>
+    {% endif %}
+    {% if by_address %}
+    <div class="category">
+      <h2>By Address</h2>
+      {{ self::filter_list(items=by_address) }}
+    </div>
+    {% endif %}
+    <div class="category">
+      <h2>Top Mail</h2>
+      <ul>
+        {% for mail in top_mail %}
+        <li>{{ mail.size }}: {{ mail.from }}: {{ mail.subject }} on {{ mail.raw_date }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

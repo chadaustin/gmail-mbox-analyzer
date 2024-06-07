@@ -1,0 +1,23 @@
+[package]
+name = "mailparse"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+actix-web = "4"
+anyhow = "1"
+clap = { version = "4.5", features = ["derive"] }
+humansize = "2"
+indoc = "2"
+mbox-reader = "0.2"
+mail-parser = "0.9"
+rusqlite_migration = "1"
+serde = { version = "1", features = ["derive"] }
+tera = "1"
+tokio = { version = "1", features = ["rt-multi-thread"] }
+url = "2.5"
+
+[target.'cfg(windows)'.dependencies]
+rusqlite = { version = "0", features = ["bundled"] }
+[target.'cfg(not(windows))'.dependencies]
+rusqlite = "0"
